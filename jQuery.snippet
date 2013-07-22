@@ -17,6 +17,11 @@ jQuery(document).ready(function() {
 		%|%
 	});
 
+//-- action
+	jQuery('#yourid').#action#( function(){
+		%|%
+	});
+	
 //-- Load and execute a JavaScript file.
 	$.ajax({
 		type: "GET",
@@ -26,20 +31,28 @@ jQuery(document).ready(function() {
 
 //-- ajax call (json)
 	var request = jQuery.ajax({
-		url: 'http://localhost',
-		type: "GET",
+		url: 'yoursite.com',
+		type: "POST",
 		data: {id : menuId},
 		dataType: "json"
 	});
-	request.fail(function(jqXHR, textStatus) {
-		alert( "Request failed: " + textStatus );
-	});
+	/*
+	List yang dilakukan
+	*/
+	request.succeded(function(msg) 
+	{
+	
+	 //delete if done supported
+	}
 	request.done(function(msg) {
   	alert( msg.data);
 		//jQuery("#log").html( msg );
 	});
-
-
+	
+	request.fail(function(jqXHR, textStatus) {
+		alert( "Request failed: " + textStatus );
+	});
+	
 //-- each
     jQuery.each( VarArray, function(index, value) {
 			%|%
