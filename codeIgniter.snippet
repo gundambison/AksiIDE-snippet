@@ -1,0 +1,112 @@
+//-- this
+  $this->
+	
+//-- Panggil View
+	$this->load->view('%|%',$data);
+	
+//-- Panggil Model
+	$this->load->Model('%|%','nama');
+	
+//-- Panggil Helper
+	$this->load->helper('%|%',$data);
+	
+//-- Panggil Helper
+	$this->load->library('%|%');
+	
+//-- Memakai DB 
+	$this->db
+	
+//-- Query
+	$sql="";
+	$this->db->query('%|%',$data);
+	
+//-- Menampilkan Hasil DB (sebagian)
+	->row_array(); ->row();
+	
+//-- Menampilkan Hasil DB 
+	->result_array(); ->result();
+	
+//-- Jumlah Row
+	->num_rows();
+	
+//-- Free Result
+	->free_result();
+
+//-- Free Result
+	->free_result();
+
+//-- Input Ke Table
+	$array=array( 'name'=>' ');
+	$this->db->insert('mytable', $array); 
+	
+//-- Update Ke Table
+	$data = array('name' => $name );
+	$this->db->where('id', $id);
+	$this->db->update('mytable', $data); 
+	
+//-- Uri segment
+	$this->uri->segment(%|%);
+	
+//-- Url
+	site_url() %|% base_url()
+
+//-- Url Sekarang
+	current_url()
+	
+//-- Url Title
+	url_title(%|%)
+	
+//-- Redirect
+	redirect('%|%', 'location/refresh');
+	
+//-- Anchor
+	anchor() anchor_popup()
+	
+//-- Retrieve 1 Session Data
+	$item=$this->session->userdata('%|%');
+
+//-- Retrieve All Session Data 
+	$this->session->all_userdata();
+	
+//-- Set Session data
+	$array=array( 'item'=>'%|%');
+	$this->session->set_userdata($array);
+	$this->session->set_userdata('item', 'value');
+
+//-- Flash Data
+	$this->session->set_flashdata('item', 'value');
+	$item=$this->session->flashdata('item');
+	
+//-- Upload
+	$config['upload_path'] = './uploads/';
+	$config['allowed_types'] = 'gif|jpg|png';
+	$config['max_size']	= '100';
+	$config['max_width']  = '1024';
+	$config['max_height']  = '768';
+
+	$this->load->library('upload', $config);
+
+	if ( ! $this->upload->do_upload())
+	{
+	//error
+	//echo $this->upload->display_errors();
+	}
+	else
+	{
+	//succed
+	//print_r($this->upload->data());
+	}
+	
+//-- Resize Image
+	$config['image_library'] = 'gd2';
+	$config['source_image']	= 'path.jpg';
+	$config['create_thumb'] = TRUE;
+	$config['maintain_ratio'] = TRUE;
+	$config['width']	 = 75;
+	$config['height']	= 50;
+
+	$this->load->library('image_lib', $config); 
+	if ( ! $this->image_lib->resize())
+	{
+		//echo $this->image_lib->display_errors();
+	}
